@@ -1,0 +1,35 @@
+{
+  "name": "serika",
+  "version": "1.0.0",
+  "description": "It's just a library that collects various functions",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node ./tests/templateFunctionTest.js",
+    "deploy": "echo \"Deprecated\" && exit 1 && webpack --config ./conf/webpack.config.js",
+    "deploy2": "tsc -p ./conf/tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Javacation/serika.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "type": "module",
+  "author": "akdltls (Javacation)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Javacation/serika/issues"
+  },
+  "homepage": "https://github.com/Javacation/serika#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.6",
+    "@types/webpack": "^5.28.5",
+    "path": "^0.12.7",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
