@@ -1,3 +1,3 @@
-import { TagFunction } from '../src/index.js';
+import { TagFunction } from 'serika';
 
-console.log('Hello World', TagFunction`Hello ${'ASDF'} World ${'qwerty'}`);
+TagFunction`Hello World ${'asdf'}`;
