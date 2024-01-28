@@ -11,7 +11,8 @@
         }
     },
     "scripts": {
-        "test": "node ./tests/templateFunctionTest.js",
+        "test": "",
+        "test:mocha": "mocha ./tdd/test.js",
         "deploy": "echo \"Deprecated\" && exit 1 && webpack --config ./conf/webpack.config.js",
         "deploy2": "tsc -p ./conf/tsconfig-esm.json && tsc -p ./conf/tsconfig-umd.json && tsc -p ./conf/tsconfig-cjs.json"
     },
@@ -31,6 +32,8 @@
     "homepage": "https://github.com/Javacation/serika#readme",
     "devDependencies": {
         "@types/node": "^20.11.6",
+        "chai": "^5.0.3",
+        "mocha": "^10.2.0",
         "path": "^0.12.7",
         "typescript": "^5.3.3"
     }
