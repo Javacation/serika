@@ -9,9 +9,4 @@
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.TagFunction = void 0;
-    function TagFunction(str, ...args) {
-        console.log(str, args);
-    }
-    exports.TagFunction = TagFunction;
 });

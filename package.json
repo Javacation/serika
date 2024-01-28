@@ -2,12 +2,18 @@
     "name": "serika",
     "version": "1.0.4",
     "description": "It's just a library that collects various functions as i want",
-    "main": "deploy/esm/index.js",
-    "types": "./lib/index.d.ts",
+    "main": "./deploy/cjs/src/index.js",
+    "module": "./deploy/esm/src/index.js",
+    "exports": {
+        ".": {
+            "import": "./deploy/esm/src/index.js",
+            "require": "./deploy/cjs/src/index.js"
+        }
+    },
     "scripts": {
         "test": "node ./tests/templateFunctionTest.js",
         "deploy": "echo \"Deprecated\" && exit 1 && webpack --config ./conf/webpack.config.js",
-        "deploy2": "tsc -p ./conf/tsconfig-esm.json && tsc -p ./conf/tsconfig-umd.json"
+        "deploy2": "tsc -p ./conf/tsconfig-esm.json && tsc -p ./conf/tsconfig-umd.json && tsc -p ./conf/tsconfig-cjs.json"
     },
     "repository": {
         "type": "git",
