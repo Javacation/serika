@@ -10,6 +10,16 @@ const typeGuardMaker = <T>(valid: (target: T)=>boolean):TypeGuard<T>=>{
     }) as any;
 };
 
+const isString = typeGuardMaker<string>((target: any)=>{
+    if( target instanceof String ) return true;
+    else return false;
+});
+
+const isParserConfig = typeGuardMaker<Serika.ParserConfig>((target: any)=>{
+    if( target instanceof Serika.ParserConfig ) return true;
+    else return false;
+});
+
 export const convert = (targetData: string, config: Serika.ParserConfig)=>{
     const 
         result = {},
@@ -18,13 +28,13 @@ export const convert = (targetData: string, config: Serika.ParserConfig)=>{
         existValid: unknown[] = [undefined, null];
 
     /** ===== valid ===== */
-    if( existValid.indexOf(targetData) > -1 ) throw new Error('not exist data');
-    if( existValid.indexOf(config) > -1 ) throw new Error('not exist config');
-    if( existValid.indexOf(config.rule) > -1 ) throw new Error('not exist config.rule');
+    if( existValid.indexOf(targetData) > -1 ) throw new Error('targetData is undefined or null');
+    if( existValid.indexOf(config) > -1 ) throw new Error('config is undefined or null');
+    if( existValid.indexOf(config.rule) > -1 ) throw new Error('config.rule is undefined or null');
 
     if( typeof targetData !== 'string' ) throw new Error('targetData is not string');
-    if( typeof config !== 'object' ) throw new Error('config type may be not Serika.ParserConfig');
-    if( typeof config.rule !== 'object' ) throw new Error('config.rule type may be not Serika.PaeseRule');
+    if( !isParserConfig(config) ) throw new Error('config type may be not Serika.ParserConfig');
+    if( typeof config.rule !== 'object' ) throw new Error('config.rule type may be not Serika.ParseRule');
 
     /** ===== parse ===== */
     

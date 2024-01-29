@@ -1,18 +1,36 @@
+import { Serika } from "../lib/index";
+const typeGuardMaker = (valid) => {
+    return ((target) => {
+        return valid(target);
+    });
+};
+const isString = typeGuardMaker((target) => {
+    if (target instanceof String)
+        return true;
+    else
+        return false;
+});
+const isParserConfig = typeGuardMaker((target) => {
+    if (target instanceof Serika.ParserConfig)
+        return true;
+    else
+        return false;
+});
 export const convert = (targetData, config) => {
-    const result = {}, ruleMap = {}, existValid = [undefined, null];
+    const result = {}, ruleMap = {}, startCounter = [], existValid = [undefined, null];
     /** ===== valid ===== */
     if (existValid.indexOf(targetData) > -1)
-        throw new Error('not exist data');
+        throw new Error('targetData is undefined or null');
     if (existValid.indexOf(config) > -1)
-        throw new Error('not exist config');
+        throw new Error('config is undefined or null');
     if (existValid.indexOf(config.rule) > -1)
-        throw new Error('not exist config.rule');
+        throw new Error('config.rule is undefined or null');
     if (typeof targetData !== 'string')
         throw new Error('targetData is not string');
-    if (typeof config !== 'object')
+    if (!isParserConfig(config))
         throw new Error('config type may be not Serika.ParserConfig');
     if (typeof config.rule !== 'object')
-        throw new Error('config.rule type may be not Serika.PaeseRule');
+        throw new Error('config.rule type may be not Serika.ParseRule');
     /** ===== parse ===== */
     /** rule is array? */
     if (!(config.rule instanceof Array)) {
@@ -20,10 +38,19 @@ export const convert = (targetData, config) => {
     }
     /** rule array => rule object */
     config.rule.forEach((v, i, o) => {
-        ruleMap[Symbol.for(v._id)] = v;
+        ruleMap[v._id] = v;
     });
     /** read string */
-    targetData.split('').forEach((v, i, o) => {
-        console.log(v, i, o);
+    targetData.split('').forEach((v1, i1, o1) => {
+        console.log(v1, i1, o1);
+        Object.keys(ruleMap).forEach((v2, i2, o2) => {
+            if (ruleMap[v2].start instanceof RegExp) {
+            }
+            if (startCounter.length === 0) {
+                startCounter.push(v1);
+            }
+            else {
+            }
+        });
     });
 };

@@ -37,7 +37,14 @@ export namespace Serika {
         end : string | RegExp
     };
     
-    export type ParserConfig = {
-        rule: ParseRule | ParseRule[],
-    };
+    // type ParserConfig = {
+    //     rule: ParseRule | ParseRule[],
+    // };
+
+    export class ParserConfig {
+        rule: ParseRule | ParseRule[];
+        constructor(rule: ParseRule | ParseRule[]) {
+            this.rule = rule;
+        }
+    }
 }

@@ -11,7 +11,7 @@
         }
     },
     "scripts": {
-        "test": "node ./tests/templateFunctionTest.js",
+        "test": "jest --coverage",
         "deploy": "echo \"Deprecated\" && exit 1 && webpack --config ./conf/webpack.config.js",
         "deploy2": "tsc -p ./conf/tsconfig-esm.json && tsc -p ./conf/tsconfig-umd.json && tsc -p ./conf/tsconfig-cjs.json"
     },
@@ -30,8 +30,17 @@
     },
     "homepage": "https://github.com/Javacation/serika#readme",
     "devDependencies": {
+        "@babel/core": "^7.23.9",
+        "@babel/preset-env": "^7.23.9",
+        "@babel/preset-typescript": "^7.23.3",
+        "@jest/globals": "^29.7.0",
+        "@types/jest": "^29.5.11",
         "@types/node": "^20.11.6",
+        "babel-jest": "^29.7.0",
+        "jest": "^29.7.0",
         "path": "^0.12.7",
+        "ts-jest": "^29.1.2",
+        "ts-node": "^10.9.2",
         "typescript": "^5.3.3"
     }
 }

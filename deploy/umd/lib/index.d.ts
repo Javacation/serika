@@ -29,7 +29,8 @@ export declare namespace Serika {
         start: string | RegExp;
         end: string | RegExp;
     };
-    type ParserConfig = {
+    class ParserConfig {
         rule: ParseRule | ParseRule[];
-    };
+        constructor(rule: ParseRule | ParseRule[]);
+    }
 }
