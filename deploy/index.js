@@ -1,4 +1,3 @@
-import { Serika } from "../lib/index";
 const typeGuardMaker = (valid) => {
     return ((target) => {
         return valid(target);
@@ -11,7 +10,7 @@ const isString = typeGuardMaker((target) => {
         return false;
 });
 const isParserConfig = typeGuardMaker((target) => {
-    if (target instanceof Serika.ParserConfig)
+    if (target)
         return true;
     else
         return false;

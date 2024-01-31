@@ -1,4 +1,4 @@
-export namespace Serika {
+declare namespace Serika {
     /** type that can have start and end */
     export type StartEndAble<T> = {
         start : T,
@@ -37,14 +37,7 @@ export namespace Serika {
         end : string | RegExp
     };
     
-    // type ParserConfig = {
-    //     rule: ParseRule | ParseRule[],
-    // };
-
-    export class ParserConfig {
-        rule: ParseRule | ParseRule[];
-        constructor(rule: ParseRule | ParseRule[]) {
-            this.rule = rule;
-        }
-    }
+    export type ParserConfig = {
+        rule: ParseRule | ParseRule[],
+    };
 }

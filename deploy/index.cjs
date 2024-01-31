@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.convert = void 0;
-const index_1 = require("../lib/index");
 const typeGuardMaker = (valid) => {
     return ((target) => {
         return valid(target);
@@ -14,7 +13,7 @@ const isString = typeGuardMaker((target) => {
         return false;
 });
 const isParserConfig = typeGuardMaker((target) => {
-    if (target instanceof index_1.Serika.ParserConfig)
+    if (target)
         return true;
     else
         return false;
